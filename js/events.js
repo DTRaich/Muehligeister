@@ -1,7 +1,7 @@
 //EVENTS AND CLICKS
 //$(function(){
 	 //n case of refresh or open up again get DB value
-	//$('#main').html(slideShowTemplate());
+	$('#main').html(slideShowTemplate());
 	//$('#main').html(maintemplate());
 //})
 
