@@ -1,4 +1,9 @@
 //EVENTS AND CLICKS
+$(function(){
+	 // in case of refresh or open up again get DB value
+		$('#main').html(slideShowTemplate());
+})
+
 //--------------------------------CLICK AND KEYDOWN EVENTS-----------------------------		
 $(document).ready(function(){
 	//----------------------Navigation------------------- 
@@ -63,7 +68,7 @@ $(document).ready(function(){
 	
 	//----------------NAVIGATION DROPS-----------------------------
 	$(document).on('click', '#drop_nav_member', function(event) {
-		$.fn.whatsActive("drop_nav_member");
+		$.fn.whatsActive("nav_drop_member");
 		
 		event.preventDefault();
 		event.stopImmediatePropagation();	
@@ -71,7 +76,7 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click', '#drop_nav_picture', function(event) {
-		$.fn.whatsActive("drop_nav_picture");
+		$.fn.whatsActive("nav_drop_picture");
 		
 		event.preventDefault();
 		event.stopImmediatePropagation();	
