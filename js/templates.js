@@ -76,13 +76,31 @@ var slideShowTemplate =_.template('<div id="carousel-example-generic" class="car
 								'</ol>'+
 								'<!-- Wrapper for slides -->'+
 								'<div class="carousel-inner">'+
-								'<div class="item active">'+
-								'<img src="...." alt="...">'+
-								'<div class="carousel-caption">'+
-								'...'+
+									'<div class="item active">'+
+										'<img src="./img/big/slide1.jpg" alt="First Slide">'+
+										'<div class="carousel-caption">'+
+										'...'+
+										'</div>'+
+										'</div>'+
+										'...'+
 								'</div>'+
+								'<div class="carousel-inner">'+
+									'<div class="item">'+
+										'<img src="./img/big/slide2.jpg" alt="Second Slide">'+
+										'<div class="carousel-caption">'+
+										'...'+
+										'</div>'+
+										'</div>'+
+										'...'+
 								'</div>'+
-								'...'+
+								'<div class="carousel-inner">'+
+									'<div class="item">'+
+										'<img src="./img/big/slide1.jpg" alt="Third Slide">'+
+										'<div class="carousel-caption">'+
+										'...'+
+										'</div>'+
+										'</div>'+
+										'...'+
 								'</div>'+
 								'<!-- Controls -->'+
 								'<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">'+
