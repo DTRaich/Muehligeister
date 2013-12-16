@@ -65,7 +65,33 @@ var historyTemplate = _.template('<h1>Geschichte</h1><p>Eine vielzahl der Gründu
 							'Falls doch besucht uns einfach beim nächsten Dorffest in Binzen.Der Weg lohnt sich.</p>'+
 
 							'<p>Ihr seht bei uns geht immer was. Auf der Seite "Aktuelles" könnt ihr euch über unsere Aktivitäten informieren.</p>'+
-							'<p>Viel Vergnügen</p>');									
+							'<p>Viel Vergnügen</p>');	
+
+var slideShowTemplate =_.template('<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">'+
+								'<!-- Indicators -->'+
+								'<ol class="carousel-indicators">'+
+								'<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>'+
+								'<li data-target="#carousel-example-generic" data-slide-to="1"></li>'+
+								'<li data-target="#carousel-example-generic" data-slide-to="2"></li>'+
+								'</ol>'+
+								'<!-- Wrapper for slides -->'+
+								'<div class="carousel-inner">'+
+								'<div class="item active">'+
+								'<img src="..." alt="...">'+
+								'<div class="carousel-caption">'+
+								'...'+
+								'</div>'+
+								'</div>'+
+								'...'+
+								'</div>'+
+								'<!-- Controls -->'+
+								'<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">'+
+								'<span class="glyphicon glyphicon-chevron-left"></span>'+
+								'</a>'+
+								'<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">'+
+								'<span class="glyphicon glyphicon-chevron-right"></span>'+
+								'</a>'+
+								'</div>');
 									
 									
 							
