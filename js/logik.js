@@ -11,13 +11,14 @@ $.fn.whatsActive = function(currentID){
 	
 		var workingActiveNav = "#"+myActiveNav;
 		$(workingActiveNav).removeClass("active");
-		//if(workingActiveNav.indexOf("drop") != -1){
-			//console.log("before slice"+workingActiveNav)
-			//var cutted = workingActiveNav.substring(1,3); 
-			//console.log("nachslice"+cutted);
-			//cutted = "#"+cutted;
-			//$(cutted).removeClass("open");	
-		//}		
+		
+		if(workingActiveNav.indexOf("drop") != -1){
+			console.log("before slice"+workingActiveNav)
+			var cutted = workingActiveNav.substring(6,50); 
+			console.log("nachslice"+cutted);
+			cutted = "#"+cutted;
+			$(cutted).removeClass("open");	
+		}		
 		
 	}
 	// set global vaiable 
