@@ -3,9 +3,7 @@
 $.fn.whatsActive = function(currentID){
 	//set whos active
 	var mycurrent = "#"+currentID;
-	console.log("current"+ currentID)
-	console.log("active"+ myActiveNav)
-
+	
 	// check others active ? yes? --> remove active
 	if(myActiveNav != null){
 	
@@ -13,9 +11,7 @@ $.fn.whatsActive = function(currentID){
 		$(workingActiveNav).removeClass("active");
 		
 		if(workingActiveNav.indexOf("drop") != -1){
-			console.log("before slice"+workingActiveNav)
 			var cutted = workingActiveNav.substring(6,50); 
-			console.log("nachslice"+cutted);
 			cutted = "#"+cutted;
 			$(cutted).removeClass("open");	
 		}		
