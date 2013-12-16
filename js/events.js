@@ -1,14 +1,19 @@
 //EVENTS AND CLICKS
-//$(function(){
+$(function(){
 	 //n case of refresh or open up again get DB value
 	$('#main').html(slideShowTemplate());
 	//$('#main').html(maintemplate());
-//})
+})
+
+
 
 //--------------------------------CLICK AND KEYDOWN EVENTS-----------------------------		
 $(document).ready(function(){
 	//----------------------Navigation------------------- 
-	
+	$('.carousel').carousel({
+  interval: 4000,
+  wrap: true
+})
 	//Opens up othe "clique" webpages part between www and .de has to be written in the respective class name look for examples
 	$(document).on('click', '#nav_other', function(event) {
 	
@@ -45,6 +50,16 @@ $(document).ready(function(){
 		
 	});
 	
+	
+	$(document).on('click', '#nav_start', function(event) {
+		
+		$('#main').html(slideShowTemplate());		
+		$.fn.whatsActive("nav_start");
+		
+		event.preventDefault();
+		event.stopImmediatePropagation();	
+		
+	});
 	
 	$(document).on('click', '#nav_dates', function(event) {
 		
