@@ -34,38 +34,45 @@
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar">cztvhz</span>
+      <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="#" id="nav_start">Startseite</a>
   </div>
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav">	
+	<!-- GESCHICHTE ------------>
       <li id ="nav_histo"><a href="#" >Geschichte</a></li>
-	  <li class="dropdown" id="nav_member">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="nav_drop_member">Mitglieder <b class="caret"></b></a>
+	   <!-- MITGLIEDER ------------>
+	  <li class="dropdown" id="nav_member">	 
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="drop_nav_member">Mitglieder <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li ><a href="#" id="nav_member_member">Mitglieder</a></li>
 		  <li class="divider"></li>
           <li><a href="#" id="nav_member_wanabe">Mitglied werden?</a></li>     
         </ul>
       </li>
+	  <!-- TERMINE ------------>
 	  <li id ="nav_dates"><a href="#">Termine</a></li>
-      <li class="dropdown" id="nav_pic">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fotos <b class="caret"></b></a>
+	  
+	  <!-- FOTOS ------------>
+      <li class="dropdown" id="nav_picture">	  
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="drop_nav_picture">Fotos <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Fastnachtszeit</a></li>
+          <li><a href="#" id="nav_picture_fastnacht">Fastnachtszeit</a></li>
 		  <li class="divider"></li>
-          <li><a href="#">Ausflüge</a></li>     
+          <li><a href="#"  id="nav_picture_ausfluege">Ausflüge</a></li>     
 		  <li class="divider"></li>
-          <li><a href="#">Aktionen</a></li>
+          <li><a href="#"  id="nav_picture_aktionen">Aktionen</a></li>
         </ul>
       </li>
     </ul>
+	
+	<!-- RECHTE SEITE ------------>
     <ul class="nav navbar-nav navbar-right">
+	<!-- LINKS ------------>
       <li id ="nav_link"><a href="#">Link</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links<b class="caret"></b></a>

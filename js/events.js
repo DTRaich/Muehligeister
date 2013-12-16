@@ -1,6 +1,7 @@
 //EVENTS AND CLICKS
 //--------------------------------CLICK AND KEYDOWN EVENTS-----------------------------		
 $(document).ready(function(){
+	//----------------------Navigation------------------- 
 	
 	//Opens up othe "clique" webpages part between www and .de has to be written in the respective class name look for examples
 	$(document).on('click', '#nav_other', function(event) {
@@ -31,24 +32,13 @@ $(document).ready(function(){
 		$.fn.whatsActive("nav_member");	
 		
 		var node = document.getElementById("tabelle");	
-		node.parentNode.insertBefore($.fn.memberTable());
-		
-			
-
-		
+		node.parentNode.insertBefore($.fn.memberTable());		
 		
 		event.preventDefault();
 		event.stopImmediatePropagation();	
 		
 	});
 	
-	$(document).on('click', '#nav_drop_member', function(event) {
-		$.fn.whatsActive("nav_drop_member");
-		
-		event.preventDefault();
-		event.stopImmediatePropagation();	
-		
-	});
 	
 	$(document).on('click', '#nav_dates', function(event) {
 		
@@ -69,20 +59,33 @@ $(document).ready(function(){
 		event.preventDefault();
 		event.stopImmediatePropagation();	
 		
+	});	
+	
+	//----------------NAVIGATION DROPS-----------------------------
+	$(document).on('click', '#drop_nav_member', function(event) {
+		$.fn.whatsActive("nav_drop_member");
+		
+		event.preventDefault();
+		event.stopImmediatePropagation();	
+		
 	});
 	
+	$(document).on('click', '#drop_nav_picture', function(event) {
+		$.fn.whatsActive("nav_drop_picture");
+		
+		event.preventDefault();
+		event.stopImmediatePropagation();	
+		
+	});
 	
+	//---------------------- Action ins the container-----------
 	$(document).on('click', '#memberDetail', function(event) {		
 	
 		var memberID = $(this).context.className;
 		var vName = memberArr[memberID]["Vorname"];
 		var nName = memberArr[memberID]["Nachname"];
 		var sName = memberArr[memberID]["Spitzname"];
-		var datum = memberArr[memberID]["Datum"];
-		
-		//$('#login').html(welcomeTemplate({id:ID}));
-		
-		console.log(memberID);
+		var datum = memberArr[memberID]["Datum"];		
 		
 		$('#main_low').html(memberDetailTemplate({Vorname:vName,Spitzname:sName,Nachname:nName,Datum:datum}));	
 		
