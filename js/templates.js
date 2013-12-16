@@ -77,7 +77,7 @@ var slideShowTemplate =_.template('<div id="carousel-example-generic" class="car
 								'<!-- Wrapper for slides -->'+
 								'<div class="carousel-inner">'+
 								'<div class="item active">'+
-								'<img src="..." alt="...">'+
+								'<img src="...." alt="...">'+
 								'<div class="carousel-caption">'+
 								'...'+
 								'</div>'+
