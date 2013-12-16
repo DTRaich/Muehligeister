@@ -1,11 +1,11 @@
-//TITLE OF JS
+//Templates and Gobal-Arrays
 // ----------------------------------TEMPLATES---------------------------
-var maintemplate=_.template('<br><table class="mainTemplateTable" id="tabelle"></table>'+
+var maintemplate = _.template('<br><table class="mainTemplateTable" id="tabelle"></table>'+
 							'<div id="main_top">dsdfsadsadsdsadsdsdsds</div>'+
 							'<div id="main_middle"></div>'+	
 							'<div id="main_low"></div>');
 							
-var memberDetailTemplate=_.template('<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+var memberDetailTemplate = _.template('<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
 									'<div class="modal-dialog">'+
 									'<div class="modal-content">'+
 									'<div class="modal-header">'+
@@ -22,7 +22,7 @@ var memberDetailTemplate=_.template('<div class="modal fade" id="myModal" tabind
 									'</div><!-- /.modal-dialog -->'+
 									'</div><!-- /.modal -->');	
 									
-var historyTemplate=_.template('<h1>Geschichte</h1><p>Eine vielzahl der Gründungsmitglieder waren schon in den 70er fasnächtlich aktiv.'+
+var historyTemplate = _.template('<h1>Geschichte</h1><p>Eine vielzahl der Gründungsmitglieder waren schon in den 70er fasnächtlich aktiv.'+
 							'Damals hatte Friedrich "Spezi" Linder die A-Jugendlichen des TUS Binzen gefragt, ob sie nicht lust hätten als Gruppe am Binzener Umzug mitzumachen.</p>'+
 							
 							'<p>Da bei der "Oberen Mühle" noch ein Anhänger des TUS stand, werden die "Scheich vo Binze" gegründet. Unter diesem Namen wurde mehrere Jahre die Fasnacht gefeiert.'+
@@ -69,7 +69,7 @@ var historyTemplate=_.template('<h1>Geschichte</h1><p>Eine vielzahl der Gründung
 									
 									
 							
-//-----------------------------------GLOBAL VARIABLES----------------------
+//-----------------------------------GLOBAL ARRAYS----------------------
 var myActiveNav = null;
 var memberArr = new Array(); 
 memberArr[0] = new Object();
@@ -86,172 +86,3 @@ memberArr[1]["Spitzname"] ="Wusel-Bär";
 memberArr[1]["Datum"] = "21.11.2011";
 memberArr[1]["ID"] = "1";
 
-
-//-----------------------INTERN METHODS------------------
-
-
-//--------------------------------CLICK AND KEYDOWN EVENTS-----------------------------		
-$(document).ready(function(){
-	
-	//Opens up othe "clique" webpages part between www and .de has to be written in the respective class name look for examples
-	$(document).on('click', '#nav_other', function(event) {
-	
-		//getting className
-		var partURl = $(this).context.className;
-		
-		// if normal url do this
-		if(partURl.indexOf('(') === -1)
-		{
-			var url = "http://www."+partURl+".de";
-		}else{
-		
-		// if . tl link do this
-			partURl = partURl.substring(1,2);
-			var url = "http://www."+partURl+".de.tl";
-		}
-		window.open(url);	
-		
-		event.preventDefault();
-		event.stopImmediatePropagation();	
-	});
-	
-	// Opens the Memberlist
-	$(document).on('click', '#nav_member_member', function(event) {
-				
-		$('#main').html(maintemplate());		
-		$.fn.whatsActive("nav_member");	
-		
-		var node = document.getElementById("tabelle");	
-		node.parentNode.insertBefore($.fn.memberTable());
-		
-			
-
-		
-		
-		event.preventDefault();
-		event.stopImmediatePropagation();	
-		
-	});
-	
-	$(document).on('click', '#nav_drop_member', function(event) {
-		$.fn.whatsActive("nav_drop_member");
-		
-		event.preventDefault();
-		event.stopImmediatePropagation();	
-		
-	});
-	
-	$(document).on('click', '#nav_dates', function(event) {
-		
-		$('#main').html(maintemplate());		
-		$.fn.whatsActive("nav_dates");
-		
-		event.preventDefault();
-		event.stopImmediatePropagation();	
-		
-	});
-	
-	
-	$(document).on('click', '#nav_histo', function(event) {
-		
-		$('#main').html(historyTemplate());		
-		$.fn.whatsActive("nav_histo");
-		
-		event.preventDefault();
-		event.stopImmediatePropagation();	
-		
-	});
-	
-	
-	$(document).on('click', '#memberDetail', function(event) {		
-	
-		var memberID = $(this).context.className;
-		var vName = memberArr[memberID]["Vorname"];
-		var nName = memberArr[memberID]["Nachname"];
-		var sName = memberArr[memberID]["Spitzname"];
-		var datum = memberArr[memberID]["Datum"];
-		
-		//$('#login').html(welcomeTemplate({id:ID}));
-		
-		console.log(memberID);
-		
-		$('#main_low').html(memberDetailTemplate({Vorname:vName,Spitzname:sName,Nachname:nName,Datum:datum}));	
-		
-		
-		$('#myModal').modal('show');	
-		event.preventDefault();
-		event.stopImmediatePropagation();	
-		
-	});	
-
-
-
-});
-
-// --------------------------------------------function section---------------------
-$.fn.whatsActive = function(currentID){
-	//set whos active
-	var mycurrent = "#"+currentID;
-	
-	
-	// check others active ? yes? --> remove active
-	if(myActiveNav != null){
-	
-		myActiveNav = "#"+myActiveNav;
-		$(myActiveNav).removeClass("active");		
-		
-	}
-	// set global vaiable 
-	$(mycurrent).addClass("active");
-	myActiveNav = currentID;
-
-}
-// Tabelle mit allen Mitgliedern
-$.fn.memberTable = function(){
-
-	var myTable = document.createElement("table");
-	myTable.setAttribute("class", "table");
-	var	mytablebody = document.createElement("tbody");
-	var k = 0;
-	
-    for(var j = 0; j < 1; j++) {
-		//create Row
-       var mycurrent_row = document.createElement("tr");
-        
-		for(var i=0;i<2;i++){
-			
-			var mycurrent_cell = document.createElement("td");
-			
-			var mycurrent_link = document.createElement("a");
-			mycurrent_link.setAttribute("href", "#");
-			mycurrent_link.setAttribute("class", memberArr[k]["ID"]);
-			mycurrent_link.setAttribute("id", "memberDetail");	
-			
-			currenttext = document.createTextNode(memberArr[k]["Vorname"]+" "+memberArr[k]["Nachname"]);		
-			var mycurrent_break = document.createElement("br"); 
-			var mycurrent_img = document.createElement("img");			
-			mycurrent_img.src="./img/small/ghost.png";
-			//mycurrent_img.style.width = "80px";
-			//mycurrent_img.style.height = "20px";
-			mycurrent_img.style.border = "0";			
-			mycurrent_img.style.cursor = "pointer";
-			mycurrent_img.setAttribute("class", "img-thumbnail");
-			
-			mycurrent_link.appendChild(currenttext);
-			mycurrent_link.appendChild(mycurrent_break);
-			mycurrent_link.appendChild(mycurrent_img);				
-			mycurrent_cell.appendChild(mycurrent_link);
-			
-			mycurrent_row.appendChild(mycurrent_cell);
-			k++;
-		} 
-		
-		//complete Row		
-        mytablebody.appendChild(mycurrent_row);
-    }
-	//complete Table
-    myTable.appendChild(mytablebody);
-   	myTable.style.width="95%";
-    return myTable;
-	
-}
