@@ -1,8 +1,9 @@
 //EVENTS AND CLICKS
-$(function(){
+//$(function(){
 	 //n case of refresh or open up again get DB value
-	$('#main').html(slideShowTemplate());
-})
+	//$('#main').html(slideShowTemplate());
+	//$('#main').html(maintemplate());
+//})
 
 //--------------------------------CLICK AND KEYDOWN EVENTS-----------------------------		
 $(document).ready(function(){
@@ -37,7 +38,7 @@ $(document).ready(function(){
 		$.fn.whatsActive("nav_member");	
 		
 		var node = document.getElementById("tabelle");	
-		node.parentNode.insertBefore($.fn.memberTable());		
+		node.parentNode.insertBefore($.fn.memberTable(),node);		
 		
 		event.preventDefault();
 		event.stopImmediatePropagation();	
