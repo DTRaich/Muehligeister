@@ -1,7 +1,7 @@
 //Templates and Gobal-Arrays
 // ----------------------------------TEMPLATES---------------------------
 var maintemplate = _.template('<div id="main_top" align="center"><br><h3>Unser Vorstand</h3></div>'+
-							'<br><table class="mainTemplateTable" id="tabelle"></table>'+
+							'<br><div align="center"><table class="mainTemplateTable" id="tabelle"></table></div>'+
 							'<div id="main_middle"></div>'+	
 							'<div id="main_low"></div>');
 							

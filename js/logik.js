@@ -38,7 +38,7 @@ $.fn.memberTable = function(){
 		for(var i=0;i<6;i++){
 			
 			var mycurrent_cell = document.createElement("td");
-			
+			mycurrent_cell.setAttribute("align","center");
 			var mycurrent_link = document.createElement("a");
 			mycurrent_link.setAttribute("href", "#");
 			mycurrent_link.setAttribute("class", memberArr[k]["ID"]);
@@ -48,9 +48,7 @@ $.fn.memberTable = function(){
 			var mycurrent_break = document.createElement("br");
 			
 			var mycurrent_img = document.createElement("img");			
-			mycurrent_img.src="./img/small/Muehli.jpg";
-			//mycurrent_img.style.width = "80px";
-			//mycurrent_img.style.height = "20px";
+			mycurrent_img.src="./img/small/Muehli.jpg";			
 			mycurrent_img.style.border = "0";			
 			mycurrent_img.style.cursor = "pointer";
 			mycurrent_img.setAttribute("class", "img-thumbnail");
@@ -86,7 +84,7 @@ $.fn.memberTable = function(){
     }
 	//complete Table
     myTable.appendChild(mytablebody);
-   	myTable.style.width="95%";
+   	myTable.style.width="85%";
     return myTable;
 	
 }
