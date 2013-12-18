@@ -31,10 +31,12 @@ $.fn.memberTable = function(){
 	var	mytablebody = document.createElement("tbody");
 	var k = 0;
 	
+	// 4 reihen
     for(var j = 0; j < 4; j++) {
 		//create Row
        var mycurrent_row = document.createElement("tr");
-        
+	   
+        // 6 pro reihe
 		for(var i=0;i<6;i++){
 			
 			var mycurrent_cell = document.createElement("td");
