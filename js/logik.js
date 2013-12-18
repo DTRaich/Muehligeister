@@ -77,6 +77,7 @@ $.fn.memberTable = function(){
 			mycurrent_row.appendChild(mycurrent_cell);
 			
 			k++;
+			console.log(k)
 		} 
 		
 		//complete Row		
