@@ -31,11 +31,11 @@ $.fn.memberTable = function(){
 	var	mytablebody = document.createElement("tbody");
 	var k = 0;
 	
-    for(var j = 0; j < 1; j++) {
+    for(var j = 0; j < 4; j++) {
 		//create Row
        var mycurrent_row = document.createElement("tr");
         
-		for(var i=0;i<2;i++){
+		for(var i=0;i<6;i++){
 			
 			var mycurrent_cell = document.createElement("td");
 			
@@ -45,7 +45,8 @@ $.fn.memberTable = function(){
 			mycurrent_link.setAttribute("id", "memberDetail");	
 			
 			currenttext = document.createTextNode(memberArr[k]["Vorname"]+" "+memberArr[k]["Nachname"]);		
-			var mycurrent_break = document.createElement("br"); 
+			var mycurrent_break = document.createElement("br");
+			
 			var mycurrent_img = document.createElement("img");			
 			mycurrent_img.src="./img/small/Muehli.jpg";
 			//mycurrent_img.style.width = "80px";
@@ -53,13 +54,30 @@ $.fn.memberTable = function(){
 			mycurrent_img.style.border = "0";			
 			mycurrent_img.style.cursor = "pointer";
 			mycurrent_img.setAttribute("class", "img-thumbnail");
+			var mycurrent_break_additional = document.createElement("br");
+			var myAdditional_currenttext = document.createTextNode(memberArr[k]["rolle"]);		
+
+			if(memberArr[k]["rolle"] !== "0"){
 			
-			mycurrent_link.appendChild(currenttext);
-			mycurrent_link.appendChild(mycurrent_break);
-			mycurrent_link.appendChild(mycurrent_img);				
-			mycurrent_cell.appendChild(mycurrent_link);
+				mycurrent_link.appendChild(currenttext);
+				mycurrent_link.appendChild(mycurrent_break);
+				mycurrent_link.appendChild(myAdditional_currenttext);
+				mycurrent_link.appendChild(mycurrent_break_additional);
+				mycurrent_link.appendChild(mycurrent_img);				
+				mycurrent_cell.appendChild(mycurrent_link);
+				
+			}else{
+
+				mycurrent_link.appendChild(currenttext);
+				mycurrent_link.appendChild(mycurrent_break);
+				mycurrent_link.appendChild(mycurrent_img);				
+				mycurrent_cell.appendChild(mycurrent_link);
+			
+			}
+			
 			
 			mycurrent_row.appendChild(mycurrent_cell);
+			
 			k++;
 		} 
 		
