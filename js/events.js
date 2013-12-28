@@ -63,8 +63,18 @@ $(document).ready(function(){
 	
 	$(document).on('click', '#nav_dates', function(event) {
 		
-		$('#main').html(maintemplate());		
+		$('#main').html(datesTemplate());		
 		$.fn.whatsActive("nav_dates");
+		
+		event.preventDefault();
+		event.stopImmediatePropagation();	
+		
+	});
+	
+		$(document).on('click', '#nav_impressum', function(event) {
+		
+		$('#main').html(impressumTemplate());		
+		$.fn.whatsActive("nav_impressum");
 		
 		event.preventDefault();
 		event.stopImmediatePropagation();	
@@ -81,6 +91,7 @@ $(document).ready(function(){
 		event.stopImmediatePropagation();	
 		
 	});	
+
 	
 	//----------------NAVIGATION DROPS-----------------------------
 	$(document).on('click', '#drop_nav_member', function(event) {
@@ -99,7 +110,7 @@ $(document).ready(function(){
 		
 	});
 	
-	//---------------------- Action ins the container-----------
+	//---------------------- Action in the container-----------
 	$(document).on('click', '#memberDetail', function(event) {		
 	
 		var memberID = $(this).context.className;
@@ -116,6 +127,8 @@ $(document).ready(function(){
 		event.stopImmediatePropagation();	
 		
 	});	
+	
+	
 
 
 
