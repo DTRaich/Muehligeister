@@ -61,6 +61,18 @@ $(document).ready(function(){
 		
 	});
 	
+	
+	$(document).on('click', '#nav_member_wanabe', function(event) {
+				
+		$('#main').html(memberWanabeTemplate());		
+		$.fn.whatsActive("nav_member");	
+		
+		event.preventDefault();
+		event.stopImmediatePropagation();	
+		
+	});
+
+	
 	$(document).on('click', '#nav_dates', function(event) {
 		
 		$('#main').html(datesTemplate());		
@@ -128,7 +140,17 @@ $(document).ready(function(){
 		
 	});	
 	
-	
+	$(document).on('click', '#btn_active', function(event) {
+		
+		
+		$('#main_low').html(activeMemberTemplate());		
+		$('#activeMemberModal').modal('show');
+		
+		event.preventDefault();
+		event.stopImmediatePropagation();	
+		
+	});
+
 
 
 

@@ -106,7 +106,37 @@ var slideShowTemplate =_.template('<div id="carousel-example-generic" class="car
 								'</a>'+
 								'</div>');
 									
-									
+var memberWanabeTemplate =_.template('<div id="main_middle"></div>'+	
+									'<div id="main_low"></div><div align="center">'+
+									'<br><br><br><br><br><br><br><br><br><br><br>'+
+									'<button type="button" id="btn_active" class="btn btn-xlarge">Aktiv</button>'+
+									'<button type="button" id="brn_passiv" class="btn btn-xlarge">Passiv</button>'+
+									'</div>');		
+
+
+var activeMemberTemplate = _.template('<div class="modal fade" id="activeMemberModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+									'<div class="modal-dialog">'+
+									'<div class="modal-content">'+
+									'<div class="modal-header">'+
+									'<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'+
+									'<h4 class="modal-title" id="myModalLabel">Aktives Mitglied werden</h4>'+
+									'</div>'+
+									'<div class="modal-body">'+
+									'<p>Du willst bei uns Aktiv mitmachen?</p>'+
+									'<p>Du bist mindestens 18 Jahre alt (16 Jahre mit Einverständniserklärung der Eltern + Aufsichtsperson in der Clique)'+
+									'Du hast Lust mit uns an Umzüge mitzulaufen aber auch bei unseren Arbeitseinsätze mitzuarbeiten... dann bist Du hier genau richtig!'+
+									'Schreib uns doch einfach eine E-Mail.</p>'+
+									'<br>'+
+									'<a href="mailto:muehligeischter-binzen@gmx.de">muehligeischter-binzen@gmx.de</a>'+
+									'<br><br><br>'+
+									'<p>Wir laden Dich dann zur unseren nächsten Sitzung ein.</p>'+
+									'</div>'+
+									'<div class="modal-footer">'+
+									'<button type="button" class="btn btn-default" data-dismiss="modal">Zurück</button>'+
+									'</div>'+
+									'</div><!-- /.modal-content -->'+
+									'</div><!-- /.modal-dialog -->'+
+									'</div><!-- /.modal -->');				
 							
 //-----------------------------------GLOBAL ARRAYS----------------------
 var myActiveNav = null;
