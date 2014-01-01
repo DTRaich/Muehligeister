@@ -150,6 +150,18 @@ $(document).ready(function(){
 		event.stopImmediatePropagation();	
 		
 	});
+	
+	$(document).on('click', '#btn_passive', function(event) {
+		
+		console.log('hallo');
+		$('#main_low').html(passiveMemberTemplate());		
+		$('#passiveMemberModal').modal('show');
+		
+		event.preventDefault();
+		event.stopImmediatePropagation();	
+		
+	});
+
 
 
 

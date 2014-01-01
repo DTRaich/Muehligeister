@@ -22,7 +22,9 @@ var memberDetailTemplate = _.template('<div class="modal fade" id="myModal" tabi
 									'</div><!-- /.modal-dialog -->'+
 									'</div><!-- /.modal -->');	
 									
-var historyTemplate = _.template('<h1>Geschichte</h1><p>Eine vielzahl der Gründungsmitglieder waren schon in den 70er fasnächtlich aktiv.'+
+var historyTemplate = _.template('<div class="panel panel-default" >'+
+							'<div class="panel-heading panel-title" style="text-align:center">Geschichte</div><br>'+
+							'<p>Eine vielzahl der Gründungsmitglieder waren schon in den 70er fasnächtlich aktiv.'+
 							'Damals hatte Friedrich "Spezi" Linder die A-Jugendlichen des TUS Binzen gefragt, ob sie nicht lust hätten als Gruppe am Binzener Umzug mitzumachen.</p>'+
 							
 							'<p>Da bei der "Oberen Mühle" noch ein Anhänger des TUS stand, werden die "Scheich vo Binze" gegründet. Unter diesem Namen wurde mehrere Jahre die Fasnacht gefeiert.'+
@@ -65,7 +67,9 @@ var historyTemplate = _.template('<h1>Geschichte</h1><p>Eine vielzahl der Gründu
 							'Falls doch besucht uns einfach beim nächsten Dorffest in Binzen.Der Weg lohnt sich.</p>'+
 
 							'<p>Ihr seht bei uns geht immer was. Auf der Seite "Aktuelles" könnt ihr euch über unsere Aktivitäten informieren.</p>'+
-							'<p>Viel Vergnügen</p>');	
+							'<p>Viel Vergnügen</p>'+
+							'<br><br><br>'+
+							'</div>');	
 
 var slideShowTemplate =_.template('<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">'+
 								'<!-- Indicators -->'+
@@ -106,11 +110,15 @@ var slideShowTemplate =_.template('<div id="carousel-example-generic" class="car
 								'</a>'+
 								'</div>');
 									
-var memberWanabeTemplate =_.template('<div id="main_middle"></div>'+	
+var memberWanabeTemplate =_.template('<div class="panel panel-default" >'+
+									'<div class="panel-heading panel-title" style="text-align:center">Mitglied werden?</div>'+
+									'<div id="main_middle"></div>'+	
 									'<div id="main_low"></div><div align="center">'+
 									'<br><br><br><br><br><br><br><br><br><br><br>'+
 									'<button type="button" id="btn_active" class="btn btn-xlarge">Aktiv</button>'+
-									'<button type="button" id="brn_passiv" class="btn btn-xlarge">Passiv</button>'+
+									'<button type="button" id="btn_passive" class="btn btn-xlarge">Passiv</button>'+
+									'</div>'+
+									'<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>'+
 									'</div>');		
 
 
@@ -136,202 +144,271 @@ var activeMemberTemplate = _.template('<div class="modal fade" id="activeMemberM
 									'</div>'+
 									'</div><!-- /.modal-content -->'+
 									'</div><!-- /.modal-dialog -->'+
-									'</div><!-- /.modal -->');				
+									'</div><!-- /.modal -->');		
+
+
+
+var passiveMemberTemplate = _.template('<div class="modal fade" id="passiveMemberModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+									'<div class="modal-dialog">'+
+									'<div class="modal-content">'+
+									'<div class="modal-header">'+
+									'<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'+
+									'<h4 class="modal-title" id="myModalLabel">Passives Mitglied werden</h4>'+
+									'</div>'+
+									'<div class="modal-body">'+
+									'<p>Du willst bei uns Passiv-Mitglied werden?</p>'+
+									'<p>Dann füll einfach den Passiv-Mitgliedsantrag aus (siehe unten) und schick es an</p>'+
+									'<br>'+
+									'<a href="mailto:muehligeischter-binzen@gmx.de">muehligeischter-binzen@gmx.de</a>'+
+									'<br><br><br>'+
+									'<p> oder an </p>'+
+									'<br>'+
+									'<p>Mühli-Geischter 1984 Binzen e.V. <br> Armin Kall <br> Am Sonnenrain 23 <br> 79415 Rheinweiler <br></p>'+
+									'<p> oder </p>'+
+									'<p>Mühli-Geischter 1984 Binzen e.V. <br> Ingo Krebs <br> Mühligaß 7 <br> 79576 Weil/Ötlingen</p><br>'+
+									'<a href="Passiv.pdf" target="_blank">Passiv-Mitgliedsantrag</a>'+
+									'</div>'+
+									'<div class="modal-footer">'+
+									'<button type="button" class="btn btn-default" data-dismiss="modal">Zurück</button>'+
+									'</div>'+
+									'</div><!-- /.modal-content -->'+
+									'</div><!-- /.modal-dialog -->'+
+									'</div><!-- /.modal -->');										
 							
 //-----------------------------------GLOBAL ARRAYS----------------------
 var myActiveNav = null;
 var memberArr = new Array(); 
 //----------------Vorstand------------------------------
 memberArr[0] = new Object();
-memberArr[0]["Vorname"] = "Sina";
-memberArr[0]["Nachname"] = "Steck";
-memberArr[0]["Spitzname"] ="Wusel";
-memberArr[0]["Datum"] = "20.11.2011";
+memberArr[0]["Vorname"] = "Armin";
+memberArr[0]["Nachname"] = "Kall";
+memberArr[0]["Spitzname"] ="Waggel";
+memberArr[0]["Datum"] = "07.04.1984";
 memberArr[0]["rolle"] ="1.Vorstand";
 memberArr[0]["ID"] = "0";
 
 memberArr[1] = new Object();
-memberArr[1]["Vorname"] = "Sina";
-memberArr[1]["Nachname"] = "Steck";
-memberArr[1]["Spitzname"] ="Wusel";
-memberArr[1]["Datum"] = "20.11.2011";
-memberArr[1]["rolle"] ="1.Vorstand";
+memberArr[1]["Vorname"] = "Ingo";
+memberArr[1]["Nachname"] = "Krebs";
+memberArr[1]["Spitzname"] ="";
+memberArr[1]["Datum"] = "07.04.1984";
+memberArr[1]["rolle"] ="2.Vorstand";
 memberArr[1]["ID"] = "1";
 
 memberArr[2] = new Object();
-memberArr[2]["Vorname"] = "Sina";
-memberArr[2]["Nachname"] = "Steck";
-memberArr[2]["Spitzname"] ="Wusel";
-memberArr[2]["Datum"] = "20.11.2011";
-memberArr[2]["rolle"] ="1.Vorstand";
+memberArr[2]["Vorname"] = "Beatrice";
+memberArr[2]["Nachname"] = "Kall";
+memberArr[2]["Spitzname"] ="Bea";
+memberArr[2]["Datum"] = "11.12.1986";
+memberArr[2]["rolle"] ="1.Kassierer";
 memberArr[2]["ID"] = "2";
 
 memberArr[3] = new Object();
-memberArr[3]["Vorname"] = "Sina";
-memberArr[3]["Nachname"] = "Steck";
-memberArr[3]["Spitzname"] ="Wusel";
-memberArr[3]["Datum"] = "20.11.2011";
-memberArr[3]["rolle"] ="1.Vorstand";
+memberArr[3]["Vorname"] = "Ulrike";
+memberArr[3]["Nachname"] = "Kasten";
+memberArr[3]["Spitzname"] ="Uli";
+memberArr[3]["Datum"] = "11.12.1986";
+memberArr[3]["rolle"] ="2.Kassierer";
 memberArr[3]["ID"] = "3";
 
 memberArr[4] = new Object();
-memberArr[4]["Vorname"] = "Sina";
-memberArr[4]["Nachname"] = "Steck";
-memberArr[4]["Spitzname"] ="Wusel";
-memberArr[4]["Datum"] = "20.11.2011";
-memberArr[4]["rolle"] ="1.Vorstand";
+memberArr[4]["Vorname"] = "Brigitte";
+memberArr[4]["Nachname"] = "Krebs";
+memberArr[4]["Spitzname"] ="";
+memberArr[4]["Datum"] = "07.04.1984";
+memberArr[4]["rolle"] ="Festorganisation";
 memberArr[4]["ID"] = "4";
 
 memberArr[5] = new Object();
-memberArr[5]["Vorname"] = "Sina";
-memberArr[5]["Nachname"] = "Steck";
-memberArr[5]["Spitzname"] ="Wusel";
-memberArr[5]["Datum"] = "20.11.2011";
-memberArr[5]["rolle"] ="1.Vorstand";
+memberArr[5]["Vorname"] = "Claudia";
+memberArr[5]["Nachname"] = "Linder";
+memberArr[5]["Spitzname"] ="Claudi";
+memberArr[5]["Datum"] = "23.03.1988";
+memberArr[5]["rolle"] ="Festorganisation";
 memberArr[5]["ID"] = "5";
 
 //---------------------Mitglieder
 
 memberArr[6] = new Object();
-memberArr[6]["Vorname"] = "Daniel";
-memberArr[6]["Nachname"] = "Trefzer";
-memberArr[6]["Spitzname"] ="Wusel-Bär";
-memberArr[6]["Datum"] = "21.11.2011";
+memberArr[6]["Vorname"] = "Klaus";
+memberArr[6]["Nachname"] = "Asal";
+memberArr[6]["Spitzname"] ="Asi";
+memberArr[6]["Datum"] = "07.04.1984";
 memberArr[6]["rolle"] = "0";
 memberArr[6]["ID"] = "6";
 
 memberArr[7] = new Object();
-memberArr[7]["Vorname"] = "Daniel";
-memberArr[7]["Nachname"] = "Trefzer";
-memberArr[7]["Spitzname"] ="Wusel-Bär";
-memberArr[7]["Datum"] = "21.11.2011";
+memberArr[7]["Vorname"] = "Klaus";
+memberArr[7]["Nachname"] = "Bertelmann";
+memberArr[7]["Spitzname"] ="Hobi";
+memberArr[7]["Datum"] = "07.04.1984";
 memberArr[7]["rolle"] = "0";
 memberArr[7]["ID"] = "7";
 
 memberArr[8] = new Object();
-memberArr[8]["Vorname"] = "Daniel";
-memberArr[8]["Nachname"] = "Trefzer";
-memberArr[8]["Spitzname"] ="Wusel-Bär";
-memberArr[8]["Datum"] = "21.11.2011";
+memberArr[8]["Vorname"] = "Beatrice";
+memberArr[8]["Nachname"] = "Breitenfellner";
+memberArr[8]["Spitzname"] ="Bea-Büseli";
+memberArr[8]["Datum"] = "07.04.1984";
 memberArr[8]["rolle"] = "0";
 memberArr[8]["ID"] = "8";
 
 memberArr[9] = new Object();
-memberArr[9]["Vorname"] = "Daniel";
-memberArr[9]["Nachname"] = "Trefzer";
-memberArr[9]["Spitzname"] ="Wusel-Bär";
-memberArr[9]["Datum"] = "21.11.2011";
+memberArr[9]["Vorname"] = "Luciano";
+memberArr[9]["Nachname"] = "Breglia";
+memberArr[9]["Spitzname"] ="Luci";
+memberArr[9]["Datum"] = "";
 memberArr[9]["rolle"] = "0";
 memberArr[9]["ID"] = "9";
 
 memberArr[10] = new Object();
-memberArr[10]["Vorname"] = "Daniel";
-memberArr[10]["Nachname"] = "Trefzer";
-memberArr[10]["Spitzname"] ="Wusel-Bär";
-memberArr[10]["Datum"] = "21.11.2011";
+memberArr[10]["Vorname"] = "Nicole";
+memberArr[10]["Nachname"] = "Brutsche";
+memberArr[10]["Spitzname"] ="";
+memberArr[10]["Datum"] = "28.12.2004";
 memberArr[10]["rolle"] = "0";
 memberArr[10]["ID"] = "10";
 
 memberArr[11] = new Object();
-memberArr[11]["Vorname"] = "Daniel";
-memberArr[11]["Nachname"] = "Trefzer";
-memberArr[11]["Spitzname"] ="Wusel-Bär";
-memberArr[11]["Datum"] = "21.11.2011";
+memberArr[11]["Vorname"] = "Peter";
+memberArr[11]["Nachname"] = "Eichler";
+memberArr[11]["Spitzname"] ="";
+memberArr[11]["Datum"] = "12.03.2004";
 memberArr[11]["rolle"] = "0";
 memberArr[11]["ID"] = "11";
 
 memberArr[12] = new Object();
-memberArr[12]["Vorname"] = "Daniel";
-memberArr[12]["Nachname"] = "Trefzer";
-memberArr[12]["Spitzname"] ="Wusel-Bär";
-memberArr[12]["Datum"] = "21.11.2011";
+memberArr[12]["Vorname"] = "Selina";
+memberArr[12]["Nachname"] = "Girletti";
+memberArr[12]["Spitzname"] ="";
+memberArr[12]["Datum"] = "26.02.2010";
 memberArr[12]["rolle"] = "0";
 memberArr[12]["ID"] = "12";
 
 memberArr[13] = new Object();
-memberArr[13]["Vorname"] = "Daniel";
-memberArr[13]["Nachname"] = "Trefzer";
-memberArr[13]["Spitzname"] ="Wusel-Bär";
-memberArr[13]["Datum"] = "21.11.2011";
+memberArr[13]["Vorname"] = "Andrea";
+memberArr[13]["Nachname"] = "Grässlin";
+memberArr[13]["Spitzname"] ="";
+memberArr[13]["Datum"] = "24.03.2005";
 memberArr[13]["rolle"] = "0";
 memberArr[13]["ID"] = "13";
 
 memberArr[14] = new Object();
-memberArr[14]["Vorname"] = "Daniel";
-memberArr[14]["Nachname"] = "Trefzer";
-memberArr[14]["Spitzname"] ="Wusel-Bär";
-memberArr[14]["Datum"] = "21.11.2011";
+memberArr[14]["Vorname"] = "Klaus";
+memberArr[14]["Nachname"] = "Grässlin";
+memberArr[14]["Spitzname"] ="Grässle";
+memberArr[14]["Datum"] = "26.02.2010";
 memberArr[14]["rolle"] = "0";
 memberArr[14]["ID"] = "14";
 
 memberArr[15] = new Object();
-memberArr[15]["Vorname"] = "Daniel";
-memberArr[15]["Nachname"] = "Trefzer";
-memberArr[15]["Spitzname"] ="Wusel-Bär";
-memberArr[15]["Datum"] = "21.11.2011";
+memberArr[15]["Vorname"] = "Julian";
+memberArr[15]["Nachname"] = "Kall";
+memberArr[15]["Spitzname"] ="";
+memberArr[15]["Datum"] = "01.09.2006";
 memberArr[15]["rolle"] = "0";
 memberArr[15]["ID"] = "15";
 
 memberArr[16] = new Object();
-memberArr[16]["Vorname"] = "Daniel";
-memberArr[16]["Nachname"] = "Trefzer";
-memberArr[16]["Spitzname"] ="Wusel-Bär";
-memberArr[16]["Datum"] = "21.11.2011";
+memberArr[16]["Vorname"] = "Tobias";
+memberArr[16]["Nachname"] = "Kalusok";
+memberArr[16]["Spitzname"] ="";
+memberArr[16]["Datum"] = "18.02.2011";
 memberArr[16]["rolle"] = "0";
 memberArr[16]["ID"] = "16";
 
 memberArr[17] = new Object();
-memberArr[17]["Vorname"] = "Daniel";
-memberArr[17]["Nachname"] = "Trefzer";
-memberArr[17]["Spitzname"] ="Wusel-Bär";
-memberArr[17]["Datum"] = "21.11.2011";
+memberArr[17]["Vorname"] = "Anika";
+memberArr[17]["Nachname"] = "Kasten";
+memberArr[17]["Spitzname"] ="";
+memberArr[17]["Datum"] = "29.04.2009";
 memberArr[17]["rolle"] = "0";
 memberArr[17]["ID"] = "17";
 
 memberArr[18] = new Object();
-memberArr[18]["Vorname"] = "Daniel";
-memberArr[18]["Nachname"] = "Trefzer";
-memberArr[18]["Spitzname"] ="Wusel-Bär";
-memberArr[18]["Datum"] = "21.11.2011";
+memberArr[18]["Vorname"] = "Julia";
+memberArr[18]["Nachname"] = "Krebs";
+memberArr[18]["Spitzname"] ="";
+memberArr[18]["Datum"] = "";
 memberArr[18]["rolle"] = "0";
 memberArr[18]["ID"] = "18";
 
 memberArr[19] = new Object();
-memberArr[19]["Vorname"] = "Daniel";
-memberArr[19]["Nachname"] = "Trefzer";
-memberArr[19]["Spitzname"] ="Wusel-Bär";
-memberArr[19]["Datum"] = "21.11.2011";
+memberArr[19]["Vorname"] = "Marie";
+memberArr[19]["Nachname"] = "Krebs";
+memberArr[19]["Spitzname"] ="";
+memberArr[19]["Datum"] = "";
 memberArr[19]["rolle"] = "0";
 memberArr[19]["ID"] = "19";
 
 memberArr[20] = new Object();
-memberArr[20]["Vorname"] = "Daniel";
-memberArr[20]["Nachname"] = "Trefzer";
-memberArr[20]["Spitzname"] ="Wusel-Bär";
-memberArr[20]["Datum"] = "21.11.2011";
+memberArr[20]["Vorname"] = "Sabrina";
+memberArr[20]["Nachname"] = "Krebs";
+memberArr[20]["Spitzname"] ="";
+memberArr[20]["Datum"] = "03.07.2005";
 memberArr[20]["rolle"] = "0";
 memberArr[20]["ID"] = "20";
 
 memberArr[21] = new Object();
-memberArr[21]["Vorname"] = "Daniel";
-memberArr[21]["Nachname"] = "Trefzer";
-memberArr[21]["Spitzname"] ="Wusel-Bär";
-memberArr[21]["Datum"] = "21.11.2011";
+memberArr[21]["Vorname"] = "Dennis";
+memberArr[21]["Nachname"] = "Krebs - Schriftführer";
+memberArr[21]["Spitzname"] ="";
+memberArr[21]["Datum"] = "05.02.2007";
 memberArr[21]["rolle"] = "0";
 memberArr[21]["ID"] = "21";
 
 memberArr[22] = new Object();
-memberArr[22]["Vorname"] = "Daniel";
-memberArr[22]["Nachname"] = "Trefzer";
-memberArr[22]["Spitzname"] ="Wusel-Bär";
-memberArr[22]["Datum"] = "21.11.2011";
+memberArr[22]["Vorname"] = "Stefan";
+memberArr[22]["Nachname"] = "Lamprecht";
+memberArr[22]["Spitzname"] ="Lampi";
+memberArr[22]["Datum"] = "05.11.1999";
 memberArr[22]["rolle"] = "0";
 memberArr[22]["ID"] = "22";
 
 memberArr[23] = new Object();
-memberArr[23]["Vorname"] = "Daniel";
-memberArr[23]["Nachname"] = "Trefzer";
-memberArr[23]["Spitzname"] ="Wusel-Bär";
-memberArr[23]["Datum"] = "21.11.2011";
+memberArr[23]["Vorname"] = "Susanne";
+memberArr[23]["Nachname"] = "Lamprecht";
+memberArr[23]["Spitzname"] ="Susi";
+memberArr[23]["Datum"] = "07.04.1984";
 memberArr[23]["rolle"] = "0";
 memberArr[23]["ID"] = "23";
+
+memberArr[24] = new Object();
+memberArr[24]["Vorname"] = "Joachim";
+memberArr[24]["Nachname"] = "Leonhardt";
+memberArr[24]["Spitzname"] ="Achim";
+memberArr[24]["Datum"] = "20.04.2001";
+memberArr[24]["rolle"] = "0";
+memberArr[24]["ID"] = "24";
+
+memberArr[25] = new Object();
+memberArr[25]["Vorname"] = "Sina";
+memberArr[25]["Nachname"] = "Steck";
+memberArr[25]["Spitzname"] ="";
+memberArr[25]["Datum"] = "21.11.2012";
+memberArr[25]["rolle"] = "0";
+memberArr[25]["ID"] = "25";
+
+memberArr[26] = new Object();
+memberArr[26]["Vorname"] = "Sarah";
+memberArr[26]["Nachname"] = "Schaffhauser";
+memberArr[26]["Spitzname"] ="";
+memberArr[26]["Datum"] = "08.05.1998";
+memberArr[26]["rolle"] = "0";
+memberArr[26]["ID"] = "26";
+
+memberArr[27] = new Object();
+memberArr[27]["Vorname"] = "Max";
+memberArr[27]["Nachname"] = "Schlager";
+memberArr[27]["Spitzname"] ="Mäxle";
+memberArr[27]["Datum"] = "";
+memberArr[27]["rolle"] = "0";
+memberArr[27]["ID"] = "27";
+
+memberArr[28] = new Object();
+memberArr[28]["Vorname"] = "Jürgen";
+memberArr[28]["Nachname"] = "Zisterer";
+memberArr[28]["Spitzname"] ="Zisti";
+memberArr[28]["Datum"] = "07.04.1984";
+memberArr[28]["rolle"] = "0";
+memberArr[28]["ID"] = "28";

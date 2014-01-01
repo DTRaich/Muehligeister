@@ -5671,7 +5671,7 @@ a.list-group-item.active:focus .list-group-item-text {
 
 .panel > .table-bordered,
 .panel > .table-responsive > .table-bordered {
-  border: 0;
+  border: 1px solid #ddd;
 }
 
 .panel > .table-bordered > thead > tr > th:first-child,
