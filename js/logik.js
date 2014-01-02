@@ -32,15 +32,25 @@ $.fn.memberTable = function(){
 	var k = 0;
 	
 	// 4 reihen
-    for(var j = 0; j < 4; j++) {
+    for(var j = 0; j < 5; j++) {
 		//create Row
        var mycurrent_row = document.createElement("tr");
 	   
         // 6 pro reihe
 		for(var i=0;i<6;i++){
+					
+			
 			
 			var mycurrent_cell = document.createElement("td");
 			mycurrent_cell.setAttribute("align","center");
+			
+			//wenn weniger leute im Array sein als reihe mal zeile ergeben leere zelle einfügen
+			if( k > memberArr.length-1){
+				
+				mycurrent_row.appendChild(mycurrent_cell);
+				
+			}else{
+			
 			var mycurrent_link = document.createElement("a");
 			mycurrent_link.setAttribute("href", "#");
 			mycurrent_link.setAttribute("class", memberArr[k]["ID"]);
@@ -57,30 +67,30 @@ $.fn.memberTable = function(){
 			var mycurrent_break_additional = document.createElement("br");
 			var myAdditional_currenttext = document.createTextNode(memberArr[k]["rolle"]);		
 
-			if(memberArr[k]["rolle"] !== "0"){
+				if(memberArr[k]["rolle"] !== "0"){
 			
-				mycurrent_link.appendChild(currenttext);
-				mycurrent_link.appendChild(mycurrent_break);
-				mycurrent_link.appendChild(myAdditional_currenttext);
-				mycurrent_link.appendChild(mycurrent_break_additional);
-				mycurrent_link.appendChild(mycurrent_img);				
-				mycurrent_cell.appendChild(mycurrent_link);
+					mycurrent_link.appendChild(currenttext);
+					mycurrent_link.appendChild(mycurrent_break);
+					mycurrent_link.appendChild(myAdditional_currenttext);
+					mycurrent_link.appendChild(mycurrent_break_additional);
+					mycurrent_link.appendChild(mycurrent_img);				
+					mycurrent_cell.appendChild(mycurrent_link);
 				
-			}else{
+				}else{
 
-				mycurrent_link.appendChild(currenttext);
-				mycurrent_link.appendChild(mycurrent_break);
-				mycurrent_link.appendChild(mycurrent_img);				
-				mycurrent_cell.appendChild(mycurrent_link);
+					mycurrent_link.appendChild(currenttext);
+					mycurrent_link.appendChild(mycurrent_break);
+					mycurrent_link.appendChild(mycurrent_img);				
+					mycurrent_cell.appendChild(mycurrent_link);
 			
-			}
+				}
 			
 			
 			mycurrent_row.appendChild(mycurrent_cell);
 			
-			k++;
-			console.log(k)
-		} 
+			k++;			
+			} 
+		}
 		
 		//complete Row		
         mytablebody.appendChild(mycurrent_row);
