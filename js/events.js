@@ -17,6 +17,8 @@ $(document).ready(function(){
 	//Opens up othe "clique" webpages part between www and .de has to be written in the respective class name look for examples
 	$(document).on('click', '#nav_other', function(event) {
 	
+		
+		
 		//getting className
 		var partURl = $(this).context.className;
 		
